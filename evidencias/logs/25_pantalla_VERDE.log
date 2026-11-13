@@ -1,0 +1,7 @@
+$ flutter test test/votacion_screen_test.dart
+00:00 +0: loading test/votacion_screen_test.dart
+00:00 +0: al votar, la barra llega a 100% y desaparecen los botones
+00:00 +1: despues de votar, el dialogo anuncia al ganador
+00:00 +2: sin votos, el dialogo no anuncia un empate
+00:00 +3: en un telefono chico (360x640) no hay desbordes
+00:00 +4: All tests passed!

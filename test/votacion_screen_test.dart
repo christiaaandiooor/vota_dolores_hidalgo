@@ -47,7 +47,7 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.textContaining('empate'), findsNothing);
-    expect(find.textContaining('no hay votos'), findsOneWidget);
+    expect(find.text('Todavia no hay votos.'), findsOneWidget);
   });
 
   testWidgets('en un telefono chico (360x640) no hay desbordes', (tester) async {

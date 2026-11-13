@@ -64,9 +64,7 @@ class _VotacionScreenState extends State<VotacionScreen> {
             child: AlertDialog(
               title: const Text('Resultado del plebiscito'),
               content: Text(
-                ganadores.length == 1
-                    ? 'La opcion ganadora es:\n\n' + ganadores.first.texto
-                    : 'Hay un empate entre:\n\n' + ganadores.map((g) => g.texto).join('\n'),
+                _textoResultado(ganadores),
                 textAlign: TextAlign.center,
               ),
               actions: [
@@ -77,6 +75,12 @@ class _VotacionScreenState extends State<VotacionScreen> {
         );
       },
     );
+  }
+
+  String _textoResultado(List<OpcionVotacion> ganadores) {
+    if (ganadores.isEmpty) return 'Todavia no hay votos.';
+    if (ganadores.length == 1) return 'La opcion ganadora es:\n\n${ganadores.first.texto}';
+    return 'Hay un empate entre:\n\n${ganadores.map((g) => g.texto).join('\n')}';
   }
 
   @override
