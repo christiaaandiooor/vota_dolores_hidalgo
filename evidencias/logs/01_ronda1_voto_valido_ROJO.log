@@ -1,0 +1,21 @@
+$ flutter test 
+00:00 +0: loading test/servicio_votacion_test.dart
+test/servicio_votacion_test.dart:5:8: Error: Error when reading 'lib/logica/servicio_votacion.dart': No such file or directory
+import 'package:vota_dolores_hidalgo/logica/servicio_votacion.dart';
+       ^
+test/servicio_votacion_test.dart:21:22: Error: Method not found: 'ServicioVotacion'.
+    final servicio = ServicioVotacion(votacion);
+                     ^^^^^^^^^^^^^^^^
+00:00 +0 -1: loading test/servicio_votacion_test.dart [E]
+  Failed to load "test/servicio_votacion_test.dart":
+  Compilation failed for testPath=test/servicio_votacion_test.dart: test/servicio_votacion_test.dart:5:8: Error: Error when reading 'lib/logica/servicio_votacion.dart': No such file or directory
+  import 'package:vota_dolores_hidalgo/logica/servicio_votacion.dart';
+         ^
+  test/servicio_votacion_test.dart:21:22: Error: Method not found: 'ServicioVotacion'.
+      final servicio = ServicioVotacion(votacion);
+                       ^^^^^^^^^^^^^^^^
+  .
+00:00 +0 -1: Some tests failed.
+
+Failing tests:
+  test/servicio_votacion_test.dart: loading test/servicio_votacion_test.dart
