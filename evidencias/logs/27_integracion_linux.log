@@ -1,0 +1,13 @@
+$ flutter test integration_test/plebiscito_test.dart -d linux
+00:00 +0: loading integration_test/plebiscito_test.dart
+Building Linux application...                                   
+✓ Built build/linux/x64/debug/bundle/vota_dolores_hidalgo
+00:00 +0: vecino: consulta, vota y ve el resultado
+CAPTURA evidencias/capturas/01_inicio_sin_votos.png
+CAPTURA evidencias/capturas/02_resultado_sin_votos.png
+CAPTURA evidencias/capturas/03_barra_animandose.png
+CAPTURA evidencias/capturas/04_voto_registrado.png
+CAPTURA evidencias/capturas/05_ganador_animandose.png
+CAPTURA evidencias/capturas/06_ganador.png
+00:03 +1: (tearDownAll)
+00:03 +1: All tests passed!
