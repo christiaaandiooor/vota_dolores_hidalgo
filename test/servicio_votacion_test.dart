@@ -158,4 +158,21 @@ void main() {
     expect(ganadores.length, 1);
     expect(ganadores.first.id, 'jardin');
   });
+
+
+  test('reto: con un reloj inyectado, se cierra justo despues de la fecha de cierre', () {
+    final cierre = DateTime(2026, 9, 16, 18, 0);
+    var ahora = DateTime(2026, 9, 16, 17, 59);
+    final votacion = _crearVotacionDePrueba(fechaCierre: cierre);
+    final servicio = ServicioVotacion(votacion, reloj: () => ahora);
+
+    expect(servicio.registrarVoto(idUsuario: 'u1', idOpcion: 'op1'), ResultadoVoto.exitoso);
+
+    ahora = cierre; // exactamente a la hora de cierre todavia se puede votar
+    expect(servicio.registrarVoto(idUsuario: 'u2', idOpcion: 'op1'), ResultadoVoto.exitoso);
+
+    ahora = cierre.add(const Duration(seconds: 1));
+    expect(servicio.registrarVoto(idUsuario: 'u3', idOpcion: 'op1'), ResultadoVoto.votacionCerrada);
+    expect(votacion.opciones[0].votos, 2);
+  });
 }

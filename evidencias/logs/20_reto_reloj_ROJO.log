@@ -1,0 +1,21 @@
+$ flutter test 
+00:00 +0: loading test/servicio_votacion_test.dart
+test/servicio_votacion_test.dart:167:49: Error: No named parameter with the name 'reloj'.
+    final servicio = ServicioVotacion(votacion, reloj: () => ahora);
+                                                ^^^^^
+lib/logica/servicio_votacion.dart:8:3: Context: Found this candidate, but the arguments don't match.
+  ServicioVotacion(this.votacion);
+  ^^^^^^^^^^^^^^^^
+00:00 +0 -1: loading test/servicio_votacion_test.dart [E]
+  Failed to load "test/servicio_votacion_test.dart":
+  Compilation failed for testPath=test/servicio_votacion_test.dart: test/servicio_votacion_test.dart:167:49: Error: No named parameter with the name 'reloj'.
+      final servicio = ServicioVotacion(votacion, reloj: () => ahora);
+                                                  ^^^^^
+  lib/logica/servicio_votacion.dart:8:3: Context: Found this candidate, but the arguments don't match.
+    ServicioVotacion(this.votacion);
+    ^^^^^^^^^^^^^^^^
+  .
+00:00 +0 -1: Some tests failed.
+
+Failing tests:
+  test/servicio_votacion_test.dart: loading test/servicio_votacion_test.dart
