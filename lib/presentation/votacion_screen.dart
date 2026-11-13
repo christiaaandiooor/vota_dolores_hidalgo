@@ -15,15 +15,15 @@ class _VotacionScreenState extends State<VotacionScreen> {
   late final Votacion _votacion;
   late final ServicioVotacion _servicio;
   bool _yaVote = false;
-  final String _idUsuario = 'invitado-' + DateTime.now().millisecondsSinceEpoch.toString();
+  final String _idUsuario = 'invitado-${DateTime.now().millisecondsSinceEpoch}';
 
   @override
   void initState() {
     super.initState();
     _votacion = Votacion(
-      pregunta: 'Que obra prioritaria debe realizar el municipio este ano?',
+      pregunta: '¿Qué obra prioritaria debe realizar el municipio este año?',
       opciones: [
-        OpcionVotacion(id: 'jardin', texto: 'Rehabilitacion del Jardin Principal'),
+        OpcionVotacion(id: 'jardin', texto: 'Rehabilitación del Jardín Principal'),
         OpcionVotacion(id: 'biblioteca', texto: 'Nueva Biblioteca Digital'),
         OpcionVotacion(id: 'alumbrado', texto: 'Alumbrado en el Barrio de Analco'),
         OpcionVotacion(id: 'parque', texto: 'Parque Infantil en la Colonia Guanajuato'),
@@ -40,7 +40,9 @@ class _VotacionScreenState extends State<VotacionScreen> {
     } else if (resultado == ResultadoVoto.usuarioYaVoto) {
       _mensaje('Ya registramos tu voto en este plebiscito.');
     } else if (resultado == ResultadoVoto.votacionCerrada) {
-      _mensaje('Esta votacion ya cerro.');
+      _mensaje('Esta votación ya cerró.');
+    } else if (resultado == ResultadoVoto.opcionInvalida) {
+      _mensaje('Esa opción no existe en este plebiscito.');
     }
   }
 
@@ -78,8 +80,8 @@ class _VotacionScreenState extends State<VotacionScreen> {
   }
 
   String _textoResultado(List<OpcionVotacion> ganadores) {
-    if (ganadores.isEmpty) return 'Todavia no hay votos.';
-    if (ganadores.length == 1) return 'La opcion ganadora es:\n\n${ganadores.first.texto}';
+    if (ganadores.isEmpty) return 'Todavía no hay votos.';
+    if (ganadores.length == 1) return 'La opción ganadora es:\n\n${ganadores.first.texto}';
     return 'Hay un empate entre:\n\n${ganadores.map((g) => g.texto).join('\n')}';
   }
 
@@ -131,7 +133,7 @@ class _BarraOpcion extends StatelessWidget {
                 tween: Tween(begin: 0, end: resultado.porcentaje),
                 duration: const Duration(milliseconds: 700),
                 curve: Curves.easeOutCubic,
-                builder: (context, valor, _) => Text(valor.toStringAsFixed(0) + '%'),
+                builder: (context, valor, _) => Text('${valor.toStringAsFixed(0)}%'),
               ),
             ],
           ),
@@ -167,7 +169,7 @@ class _BarraOpcion extends StatelessWidget {
           ),
           const SizedBox(height: 6),
           if (puedeVotar)
-            OutlinedButton(onPressed: onVotar, child: const Text('Votar por esta opcion')),
+            OutlinedButton(onPressed: onVotar, child: const Text('Votar por esta opción')),
         ],
       ),
     );

@@ -12,9 +12,9 @@ void main() {
   testWidgets('al votar, la barra llega a 100% y desaparecen los botones', (tester) async {
     telefono(tester, const Size(412, 891));
     await tester.pumpWidget(const VotaDoloresApp());
-    expect(find.text('Votar por esta opcion'), findsNWidgets(4));
+    expect(find.text('Votar por esta opción'), findsNWidgets(4));
 
-    await tester.tap(find.text('Votar por esta opcion').first);
+    await tester.tap(find.text('Votar por esta opción').first);
     await tester.pump(const Duration(milliseconds: 300));
     // a media animacion el porcentaje todavia va creciendo
     final aMedias = tester.widget<Text>(find.textContaining('%').first).data!;
@@ -23,19 +23,19 @@ void main() {
 
     expect(find.text('100%'), findsOneWidget);
     expect(find.text('0%'), findsNWidgets(3));
-    expect(find.text('Votar por esta opcion'), findsNothing);
+    expect(find.text('Votar por esta opción'), findsNothing);
   });
 
   testWidgets('despues de votar, el dialogo anuncia al ganador', (tester) async {
     telefono(tester, const Size(412, 891));
     await tester.pumpWidget(const VotaDoloresApp());
-    await tester.tap(find.text('Votar por esta opcion').at(1));
+    await tester.tap(find.text('Votar por esta opción').at(1));
     await tester.pumpAndSettle();
 
     await tester.tap(find.text('Ver resultado del plebiscito'));
     await tester.pumpAndSettle();
 
-    expect(find.textContaining('La opcion ganadora es:'), findsOneWidget);
+    expect(find.textContaining('La opción ganadora es:'), findsOneWidget);
     expect(find.textContaining('Nueva Biblioteca Digital'), findsNWidgets(2));
   });
 
@@ -47,13 +47,13 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.textContaining('empate'), findsNothing);
-    expect(find.text('Todavia no hay votos.'), findsOneWidget);
+    expect(find.text('Todavía no hay votos.'), findsOneWidget);
   });
 
   testWidgets('en un telefono chico (360x640) no hay desbordes', (tester) async {
     telefono(tester, const Size(360, 640));
     await tester.pumpWidget(const VotaDoloresApp());
-    await tester.tap(find.text('Votar por esta opcion').first);
+    await tester.tap(find.text('Votar por esta opción').first);
     await tester.pumpAndSettle();
     await tester.ensureVisible(find.text('Ver resultado del plebiscito'));
     await tester.pumpAndSettle();
