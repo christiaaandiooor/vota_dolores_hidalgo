@@ -1,0 +1,33 @@
+$ flutter test   # mutacion: se comento "if (yaVoto) return ResultadoVoto.usuarioYaVoto;"
+00:00 +0: loading test/servicio_votacion_test.dart
+00:00 +0: registrar un voto valido incrementa el contador de esa opcion
+00:00 +1: votar por una opcion que no existe regresa opcionInvalida
+00:00 +2: un mismo usuario no puede votar dos veces
+00:00 +2 -1: un mismo usuario no puede votar dos veces [E]
+  Expected: ResultadoVoto:<ResultadoVoto.usuarioYaVoto>
+    Actual: ResultadoVoto:<ResultadoVoto.exitoso>
+  
+  package:matcher                                     expect
+  package:flutter_test/src/widget_tester.dart 473:18  expect
+  test/servicio_votacion_test.dart 46:5               main.<fn>
+  
+00:00 +2 -1: calcula el porcentaje de cada opcion correctamente
+00:00 +3 -1: si no hay ningun voto, todos los porcentajes son 0
+00:00 +4 -1: determinarGanador regresa la opcion con mas votos
+00:00 +5 -1: si hay empate, determinarGanador regresa mas de una opcion
+00:00 +6 -1: no se puede votar si la votacion ya cerro
+00:00 +7 -1: si la votacion sigue abierta, el voto se registra normalmente
+00:00 +8 -1: simulacion completa: varios vecinos votan y se determina un ganador
+00:00 +8 -2: simulacion completa: varios vecinos votan y se determina un ganador [E]
+  Expected: <3>
+    Actual: <4.0>
+  
+  package:matcher                                     expect
+  package:flutter_test/src/widget_tester.dart 473:18  expect
+  test/servicio_votacion_test.dart 157:5              main.<fn>
+  
+00:00 +8 -2: Some tests failed.
+
+Failing tests:
+  test/servicio_votacion_test.dart: simulacion completa: varios vecinos votan y se determina un ganador
+  test/servicio_votacion_test.dart: un mismo usuario no puede votar dos veces
