@@ -1,0 +1,55 @@
+$ flutter test
+00:00 +0: loading test/servicio_votacion_test.dart
+lib/logica/servicio_votacion.dart:27:8: Error: Type 'ResultadoOpcion' not found.
+  List<ResultadoOpcion> obtenerResultados() {
+       ^^^^^^^^^^^^^^^
+test/servicio_votacion_test.dart:61:48: Error: The getter 'opcion' isn't defined for the type 'Object?'.
+ - 'Object' is from 'dart:core'.
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'opcion'.
+    final op1 = resultados.firstWhere((r) => r.opcion.id == 'op1');
+                                               ^^^^^^
+test/servicio_votacion_test.dart:62:48: Error: The getter 'opcion' isn't defined for the type 'Object?'.
+ - 'Object' is from 'dart:core'.
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'opcion'.
+    final op2 = resultados.firstWhere((r) => r.opcion.id == 'op2');
+                                               ^^^^^^
+test/servicio_votacion_test.dart:73:38: Error: The getter 'porcentaje' isn't defined for the type 'Object?'.
+ - 'Object' is from 'dart:core'.
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'porcentaje'.
+    expect(resultados.every((r) => r.porcentaje == 0), true);
+                                     ^^^^^^^^^^
+lib/logica/servicio_votacion.dart:31:14: Error: The method 'ResultadoOpcion' isn't defined for the type 'ServicioVotacion'.
+ - 'ServicioVotacion' is from 'package:vota_dolores_hidalgo/logica/servicio_votacion.dart' ('lib/logica/servicio_votacion.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'ResultadoOpcion'.
+      return ResultadoOpcion(o, porcentaje);
+             ^^^^^^^^^^^^^^^
+00:00 +0 -1: loading test/servicio_votacion_test.dart [E]
+  Failed to load "test/servicio_votacion_test.dart":
+  Compilation failed for testPath=test/servicio_votacion_test.dart: lib/logica/servicio_votacion.dart:27:8: Error: Type 'ResultadoOpcion' not found.
+    List<ResultadoOpcion> obtenerResultados() {
+         ^^^^^^^^^^^^^^^
+  test/servicio_votacion_test.dart:61:48: Error: The getter 'opcion' isn't defined for the type 'Object?'.
+   - 'Object' is from 'dart:core'.
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'opcion'.
+      final op1 = resultados.firstWhere((r) => r.opcion.id == 'op1');
+                                                 ^^^^^^
+  test/servicio_votacion_test.dart:62:48: Error: The getter 'opcion' isn't defined for the type 'Object?'.
+   - 'Object' is from 'dart:core'.
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'opcion'.
+      final op2 = resultados.firstWhere((r) => r.opcion.id == 'op2');
+                                                 ^^^^^^
+  test/servicio_votacion_test.dart:73:38: Error: The getter 'porcentaje' isn't defined for the type 'Object?'.
+   - 'Object' is from 'dart:core'.
+  Try correcting the name to the name of an existing getter, or defining a getter or field named 'porcentaje'.
+      expect(resultados.every((r) => r.porcentaje == 0), true);
+                                       ^^^^^^^^^^
+  lib/logica/servicio_votacion.dart:31:14: Error: The method 'ResultadoOpcion' isn't defined for the type 'ServicioVotacion'.
+   - 'ServicioVotacion' is from 'package:vota_dolores_hidalgo/logica/servicio_votacion.dart' ('lib/logica/servicio_votacion.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'ResultadoOpcion'.
+        return ResultadoOpcion(o, porcentaje);
+               ^^^^^^^^^^^^^^^
+  .
+00:00 +0 -1: Some tests failed.
+
+Failing tests:
+  test/servicio_votacion_test.dart: loading test/servicio_votacion_test.dart

@@ -1,0 +1,8 @@
+$ flutter test 
+00:00 +0: loading test/servicio_votacion_test.dart
+00:00 +0: registrar un voto valido incrementa el contador de esa opcion
+00:00 +1: votar por una opcion que no existe regresa opcionInvalida
+00:00 +2: un mismo usuario no puede votar dos veces
+00:00 +3: calcula el porcentaje de cada opcion correctamente
+00:00 +4: si no hay ningun voto, todos los porcentajes son 0
+00:00 +5: All tests passed!

@@ -1,5 +1,6 @@
 import '../modelos/votacion.dart';
 import '../modelos/opcion_votacion.dart';
+import '../modelos/resultado_opcion.dart';
 import 'resultado_voto.dart';
 
 class ServicioVotacion {
@@ -22,5 +23,13 @@ class ServicioVotacion {
       if (o.id == id) return o;
     }
     return null;
+  }
+
+  List<ResultadoOpcion> obtenerResultados() {
+    final total = votacion.opciones.fold<int>(0, (suma, o) => suma + o.votos);
+    return votacion.opciones.map((o) {
+      final porcentaje = total == 0 ? 0.0 : (o.votos / total) * 100;
+      return ResultadoOpcion(o, porcentaje);
+    }).toList();
   }
 }
