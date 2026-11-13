@@ -5,10 +5,11 @@ import 'resultado_voto.dart';
 
 class ServicioVotacion {
   final Votacion votacion;
-  ServicioVotacion(this.votacion);
+  final DateTime Function() reloj;
+  ServicioVotacion(this.votacion, {this.reloj = DateTime.now});
 
   ResultadoVoto registrarVoto({required String idUsuario, required String idOpcion}) {
-    final yaCerro = DateTime.now().isAfter(votacion.fechaCierre);
+    final yaCerro = reloj().isAfter(votacion.fechaCierre);
     if (yaCerro) return ResultadoVoto.votacionCerrada;
 
     final yaVoto = votacion.votantes.contains(idUsuario);
