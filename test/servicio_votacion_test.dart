@@ -175,4 +175,14 @@ void main() {
     expect(servicio.registrarVoto(idUsuario: 'u3', idOpcion: 'op1'), ResultadoVoto.votacionCerrada);
     expect(votacion.opciones[0].votos, 2);
   });
+
+
+  test('extra: si nadie ha votado no hay ganador (no es un empate de todas)', () {
+    final votacion = _crearVotacionDePrueba();
+    final servicio = ServicioVotacion(votacion);
+
+    final ganadores = servicio.determinarGanador();
+
+    expect(ganadores, isEmpty);
+  });
 }
