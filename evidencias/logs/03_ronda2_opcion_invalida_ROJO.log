@@ -1,0 +1,13 @@
+$ flutter test 
+00:00 +0: loading test/servicio_votacion_test.dart
+00:00 +0: registrar un voto valido incrementa el contador de esa opcion
+00:00 +1: votar por una opcion que no existe regresa opcionInvalida
+00:00 +1 -1: votar por una opcion que no existe regresa opcionInvalida [E]
+  Null check operator used on a null value
+  package:vota_dolores_hidalgo/logica/servicio_votacion.dart 11:11  ServicioVotacion.registrarVoto
+  test/servicio_votacion_test.dart 33:32                            main.<fn>
+  
+00:00 +1 -1: Some tests failed.
+
+Failing tests:
+  test/servicio_votacion_test.dart: votar por una opcion que no existe regresa opcionInvalida
