@@ -32,4 +32,9 @@ class ServicioVotacion {
       return ResultadoOpcion(o, porcentaje);
     }).toList();
   }
+
+  List<OpcionVotacion> determinarGanador() {
+    final maxVotos = votacion.opciones.map((o) => o.votos).reduce((a, b) => a > b ? a : b);
+    return votacion.opciones.where((o) => o.votos == maxVotos).toList();
+  }
 }
